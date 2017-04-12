@@ -8,9 +8,10 @@ use Cake\ORM\Entity;
  *
  * @property int $ID
  * @property string $customer_name
- * @property string $customer_area
+ * @property int $area_id
  *
- * @property \App\Model\Entity\Order[] $orders
+ * @property \App\Model\Entity\Area $area
+ * @property \App\Model\Entity\Invoice[] $invoices
  */
 class Customer extends Entity
 {

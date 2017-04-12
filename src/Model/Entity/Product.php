@@ -9,6 +9,8 @@ use Cake\ORM\Entity;
  * @property int $ID
  * @property string $product_name
  * @property int $product_price
+ *
+ * @property \App\Model\Entity\Invoice[] $invoices
  */
 class Product extends Entity
 {

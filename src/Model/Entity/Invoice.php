@@ -4,14 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Area Entity
+ * Invoice Entity
  *
  * @property int $ID
- * @property string $area_name
+ * @property int $customer_id
+ * @property int $product_id
+ * @property int $amount
+ * @property \Cake\I18n\Time $order_time
  *
- * @property \App\Model\Entity\Customer[] $customers
+ * @property \App\Model\Entity\Customer $customer
+ * @property \App\Model\Entity\Product $product
  */
-class Area extends Entity
+class Invoice extends Entity
 {
 
     /**

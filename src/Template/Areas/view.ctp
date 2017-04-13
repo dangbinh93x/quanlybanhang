@@ -39,6 +39,7 @@
             <?php foreach ($area->customers as $customers): ?>
             <tr>
                 <td><?= h($customers->ID) ?></td>
+
                 <td><?= $this->Html->link(__($customers->customer_name), ['controller' => 'Customers', 'action' => 'view', $customers->ID]) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Sửa '), ['controller' => 'Customers', 'action' => 'edit', $customers->ID]) ?>

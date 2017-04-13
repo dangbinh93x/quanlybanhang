@@ -17,14 +17,14 @@
     </ul>
 </nav>
 <div class="customers view large-9 medium-8 columns content">
-    <h3><?= h($customer->customer_name) ?></h3>
+    <h3><?= h($customer->ID) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Tên Khách Hàng') ?></th>
+            <th scope="row"><?= __('Customer Name') ?></th>
             <td><?= h($customer->customer_name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Địa chỉ') ?></th>
+            <th scope="row"><?= __('Area') ?></th>
             <td><?= $customer->has('area') ? $this->Html->link($customer->area->ID, ['controller' => 'Areas', 'action' => 'view', $customer->area->ID]) : '' ?></td>
         </tr>
         <tr>

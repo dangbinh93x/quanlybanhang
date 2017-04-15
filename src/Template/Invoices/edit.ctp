@@ -27,6 +27,7 @@
             echo $this->Form->control('customer_id', ['options' => $customers]);
             echo $this->Form->control('product_id', ['options' => $products]);
             echo $this->Form->control('amount');
+            echo $this->Form->control('total');
             echo $this->Form->control('order_time');
         ?>
     </fieldset>

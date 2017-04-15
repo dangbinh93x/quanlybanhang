@@ -65,6 +65,11 @@ class InvoicesTable extends Table
             ->notEmpty('amount');
 
         $validator
+            ->integer('total')
+            ->requirePresence('total', 'create')
+            ->notEmpty('total');
+
+        $validator
             ->dateTime('order_time')
             ->requirePresence('order_time', 'create')
             ->notEmpty('order_time');

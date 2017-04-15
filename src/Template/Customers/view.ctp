@@ -17,15 +17,15 @@
     </ul>
 </nav>
 <div class="customers view large-9 medium-8 columns content">
-    <h3><?= h($customer->ID) ?></h3>
+    <h3><?= h($customer->customer_name) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Customer Name') ?></th>
+            <th scope="row"><?= __('Tên Khách Hàng') ?></th>
             <td><?= h($customer->customer_name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Area') ?></th>
-            <td><?= $customer->has('area') ? $this->Html->link($customer->area->ID, ['controller' => 'Areas', 'action' => 'view', $customer->area->ID]) : '' ?></td>
+            <th scope="row"><?= __('Địa chỉ') ?></th>
+            <td><?= $customer->has('area') ? $this->Html->link($customer->area->area_name, ['controller' => 'Areas', 'action' => 'view', $customer->area->ID]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('ID') ?></th>
@@ -33,7 +33,7 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Invoices') ?></h4>
+        <h4><?= __('Các Hóa Đơn Liên Quan') ?></h4>
         <?php if (!empty($customer->invoices)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

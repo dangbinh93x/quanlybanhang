@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('ID') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('customer_name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('customer_name','Tên Khách Hàng') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('area_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -28,8 +28,8 @@
             <?php foreach ($customers as $customer): ?>
             <tr>
                 <td><?= $this->Number->format($customer->ID) ?></td>
-                <td><?= h($customer->customer_name) ?></td>
-                <td><?= $customer->has('area') ? $this->Html->link($customer->area->ID, ['controller' => 'Areas', 'action' => 'view', $customer->area->ID]) : '' ?></td>
+                <td><?= $this->Html->link(__($customer->customer_name), ['action' => 'view', $customer->ID]) ?></td>
+                <td><?= $customer->has('area') ? $this->Html->link($customer->area->area_name, ['controller' => 'Areas', 'action' => 'view', $customer->area->ID]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $customer->ID]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $customer->ID]) ?>
@@ -47,6 +47,6 @@
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter(['format' => __('Trang {{page}} of {{pages}}, Hiển thị ra {{current}} Khách Hàng(s) của {{count}} tổng Khách Hàng')]) ?></p>
     </div>
 </div>

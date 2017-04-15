@@ -51,6 +51,7 @@ class InvoicesController extends AppController
      */
     public function add()
     {
+        var_dump($this->request->getData());
         $invoice = $this->Invoices->newEntity();
         if ($this->request->is('post')) {
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());

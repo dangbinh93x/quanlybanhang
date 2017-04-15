@@ -2,6 +2,9 @@
 /**
   * @var \App\View\AppView $this
   */
+echo $this->Html->css('invoices.css');
+echo $this->Html->script('invoices.js');
+
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -20,7 +23,13 @@
         <?php
             echo $this->Form->control('customer_id', ['options' => $customers]);
             echo $this->Form->control('product_id', ['options' => $products]);
-            echo $this->Form->control('amount');
+            echo $this->Form->control('amount'); ?>
+            <div class="input number">
+                <label>Thành Tiền</label>
+                <input class="disable" type="number" required="required" id="total" value="50000">
+                <input class="disable hidden" type="number" name="total" required="required" id="total" value="50000">
+            </div>
+        <?php
             echo $this->Form->control('order_time');
         ?>
     </fieldset>

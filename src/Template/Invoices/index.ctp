@@ -2,6 +2,7 @@
 /**
   * @var \App\View\AppView $this
   */
+echo $this->Html->css('invoices.css')
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -22,6 +23,7 @@
                 <th scope="col"><?= $this->Paginator->sort('customer_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('product_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('amount') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('total') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('order_time') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -33,6 +35,7 @@
                 <td><?= $invoice->has('customer') ? $this->Html->link($invoice->customer->ID, ['controller' => 'Customers', 'action' => 'view', $invoice->customer->ID]) : '' ?></td>
                 <td><?= $invoice->has('product') ? $this->Html->link($invoice->product->ID, ['controller' => 'Products', 'action' => 'view', $invoice->product->ID]) : '' ?></td>
                 <td><?= $this->Number->format($invoice->amount) ?></td>
+                <td><?= $this->Number->format($invoice->total) ?></td>
                 <td><?= h($invoice->order_time) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->ID]) ?>

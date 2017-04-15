@@ -1,3 +1,5 @@
-/**
- * Created by binhdx on 4/13/2017.
- */
+$(document).ready(function () {
+    $( "#amount" ).change(function() {
+        alert( "Handler for .change() called." );
+    });
+});

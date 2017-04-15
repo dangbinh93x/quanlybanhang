@@ -36,6 +36,10 @@
             <td><?= $this->Number->format($invoice->amount) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Total') ?></th>
+            <td><?= $this->Number->format($invoice->total) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Order Time') ?></th>
             <td><?= h($invoice->order_time) ?></td>
         </tr>

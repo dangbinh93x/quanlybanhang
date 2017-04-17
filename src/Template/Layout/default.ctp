@@ -27,34 +27,38 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('top.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= h('Quản Lý Bán Hàng') ?></a></h1>
-            </li>
+<nav class="top-bar expanded" data-topbar role="navigation">
+    <ul class="title-area large-3 medium-4 columns">
+        <li class="name">
+            <h1><a href=""><?= h('Quản Lý Bán Hàng') ?></a></h1>
+        </li>
+    </ul>
+    <div class="top-bar-section">
+        <ul class="right">
+            <li><a target="_blank" href="">Documentation</a></li>
         </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="">Documentation</a></li>
-            </ul>
-        </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <nav class="large-3 medium-4 columns" id="actions-sidebar">
-            <ul class="side-nav">
-                <li class="heading"><?= __('MENU') ?></li>
-            </ul>
-        </nav>
-        <?= $this->fetch('content') ?>
     </div>
-    <footer>
-    </footer>
+</nav>
+<?= $this->Flash->render() ?>
+<div class="container clearfix">
+    <nav class="large-3 medium-4 columns" id="actions-sidebar">
+        <ul class="side-nav">
+            <li class="heading"><?= __('MENU') ?></li>
+            <li><?= $this->Html->link(__('Danh sách Khách Hàng'), ['controller' => 'Customers', 'action' => 'index']) ?></li>
+            <li><?= $this->Html->link(__('Danh sách Sản Phẩm'), ['controller' => 'Products', 'action' => 'index']) ?></li>
+            <li><?= $this->Html->link(__('Danh sách Hóa Đơn'), ['controller' => 'Invoices', 'action' => 'index']) ?></li>
+        </ul>
+    </nav>
+    <?= $this->fetch('content') ?>
+</div>
+<footer>
+</footer>
 </body>
 </html>

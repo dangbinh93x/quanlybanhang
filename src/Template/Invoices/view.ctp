@@ -36,6 +36,10 @@
             <td><?= $this->Number->format($invoice->amount) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Discount') ?></th>
+            <td><?= $this->Number->format($invoice->discount) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Total') ?></th>
             <td><?= $this->Number->format($invoice->total) ?></td>
         </tr>

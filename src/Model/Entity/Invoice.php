@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  * @property int $customer_id
  * @property int $product_id
  * @property int $amount
+ * @property int $discount
  * @property int $total
  * @property \Cake\I18n\Time $order_time
  *

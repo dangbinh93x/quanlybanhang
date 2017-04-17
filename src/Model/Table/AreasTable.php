@@ -33,7 +33,7 @@ class AreasTable extends Table
         parent::initialize($config);
 
         $this->setTable('areas');
-        $this->setDisplayField('ID');
+        $this->setDisplayField('area_name');
         $this->setPrimaryKey('ID');
 
         $this->hasMany('Customers', [

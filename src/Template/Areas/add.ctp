@@ -3,22 +3,18 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Areas'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Customer'), ['controller' => 'Customers', 'action' => 'add']) ?></li>
-    </ul>
+<nav class="large-3 medium-4 columns">
+    <br>
+    <div class="col-sm-4"><?= $this->Html->link(__('Trở về'), ['action' => 'index'], ['class' => 'button']) ?></div>
 </nav>
 <div class="areas form large-9 medium-8 columns content">
     <?= $this->Form->create($area) ?>
     <fieldset>
-        <legend><?= __('Add Area') ?></legend>
+        <legend><?= __('Thêm Khu Vực') ?></legend>
         <?php
-            echo $this->Form->control('area_name');
+            echo $this->Form->control('area_name',['label'=>'Tên Khu Vực']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Xác Nhận')) ?>
     <?= $this->Form->end() ?>
 </div>

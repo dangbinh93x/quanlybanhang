@@ -3,18 +3,9 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Customer'), ['action' => 'edit', $customer->ID]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Customer'), ['action' => 'delete', $customer->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $customer->ID)]) ?> </li>
-        <li><?= $this->Html->link(__('List Customers'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Customer'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Areas'), ['controller' => 'Areas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Area'), ['controller' => 'Areas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Invoices'), ['controller' => 'Invoices', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Invoice'), ['controller' => 'Invoices', 'action' => 'add']) ?> </li>
-    </ul>
+<nav class="large-3 medium-4 columns">
+    <br>
+    <div class="col-sm-4"><?= $this->Html->link(__('Sửa Khách hàng'), ['action' => 'edit',$customer->ID], ['class' => 'button']) ?></div>
 </nav>
 <div class="customers view large-9 medium-8 columns content">
     <h3><?= h($customer->customer_name) ?></h3>
@@ -37,24 +28,27 @@
         <?php if (!empty($customer->invoices)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('ID') ?></th>
-                <th scope="col"><?= __('Customer Id') ?></th>
-                <th scope="col"><?= __('Product Id') ?></th>
-                <th scope="col"><?= __('Amount') ?></th>
-                <th scope="col"><?= __('Order Time') ?></th>
+                <th scope="col"><?= __('STT') ?></th>
+                <th scope="col"><?= __('Tên Khách Hàng') ?></th>
+                <th scope="col"><?= __('Sản Phẩm') ?></th>
+                <th scope="col"><?= __('Số Lượng') ?></th>
+                <th scope="col"><?= __('Chiết Khấu') ?></th>
+                <th scope="col"><?= __('Thành Tiền') ?></th>
+                <th scope="col"><?= __('Thời Gian giao hàng') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($customer->invoices as $invoices): ?>
             <tr>
-                <td><?= h($invoices->ID) ?></td>
-                <td><?= h($invoices->customer_id) ?></td>
-                <td><?= h($invoices->product_id) ?></td>
+                <td><?= $this->Html->link(__($invoices->ID), ['controller' => 'Invoices', 'action' => 'view', $invoices->ID])  ?></td>
+                <td><?= h($customer->customer_name) ?></td>
+                <td><?= h($invoices->product->product_name) ?></td>
                 <td><?= h($invoices->amount) ?></td>
+                <td><?= h($invoices->discount) ?></td>
+                <td><?= h($invoices->total) ?></td>
                 <td><?= h($invoices->order_time) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Invoices', 'action' => 'view', $invoices->ID]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Invoices', 'action' => 'edit', $invoices->ID]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Invoices', 'action' => 'delete', $invoices->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $invoices->ID)]) ?>
+                    <?= $this->Html->link(__('Sửa'), ['controller' => 'Invoices', 'action' => 'edit', $invoices->ID]) ?>
+                    <?= $this->Form->postLink(__('Xóa'), ['controller' => 'Invoices', 'action' => 'delete', $invoices->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $invoices->ID)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -3,29 +3,13 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Area'), ['action' => 'edit', $area->ID]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Area'), ['action' => 'delete', $area->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $area->ID)]) ?> </li>
-        <li><?= $this->Html->link(__('List Areas'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Area'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Customer'), ['controller' => 'Customers', 'action' => 'add']) ?> </li>
-    </ul>
+<nav class="large-3 medium-4 columns">
+    <br>
+    <div class="col-sm-4"><?= $this->Html->link(__('Trở về'), ['action' => 'index'], ['class' => 'button']) ?></div>
 </nav>
+
 <div class="areas view large-9 medium-8 columns content">
-    <h3><?= h($area->area_name) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Area Name') ?></th>
-            <td><?= h($area->area_name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('ID') ?></th>
-            <td><?= $this->Number->format($area->ID) ?></td>
-        </tr>
-    </table>
+
     <div class="related">
         <h4><?= __('Khách Hàng trong '.$area->area_name) ?></h4>
         <?php if (!empty($area->customers)): ?>
@@ -45,7 +29,7 @@
                     <?= $this->Html->link(__('Sửa '), ['controller' => 'Customers', 'action' => 'edit', $customers->ID]) ?>
                 </td>
                 <td>
-                    <?= $this->Form->postLink(__('Xóa'), ['controller' => 'Customers', 'action' => 'delete', $customers->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $customers->ID)]) ?>
+                    <?= $this->Form->postLink(__('Xóa'), ['controller' => 'Customers', 'action' => 'delete', $customers->ID], ['confirm' => __('Có muốn xóa khác hàng # {0}?', $customers->customer_name)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

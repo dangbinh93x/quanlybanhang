@@ -16,6 +16,6 @@
             echo $this->Form->control('area_id', ['options' => $areas,'label'=>'Khu Vực']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Xác Nhận')) ?>
     <?= $this->Form->end() ?>
 </div>

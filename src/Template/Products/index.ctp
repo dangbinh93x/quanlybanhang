@@ -3,22 +3,19 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Invoices'), ['controller' => 'Invoices', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Invoice'), ['controller' => 'Invoices', 'action' => 'add']) ?></li>
-    </ul>
+<nav class="large-3 medium-4 columns">
+    <br>
+    <div class="col-sm-4"><?= $this->Html->link(__('Thêm Sản Phẩm'), ['action' => 'add'], ['class' => 'button']) ?></div>
 </nav>
+
 <div class="products index large-9 medium-8 columns content">
-    <h3><?= __('Products') ?></h3>
+    <h3><?= __('Sản Phẩm') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('ID') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('product_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('product_price') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('product_name','Tên Sản Phẩm') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('product_price','Đơn Giá') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -26,12 +23,10 @@
             <?php foreach ($products as $product): ?>
             <tr>
                 <td><?= $this->Number->format($product->ID) ?></td>
-                <td><?= h($product->product_name) ?></td>
+                <td><?= $this->Html->link(__($product->product_name), ['action' => 'view', $product->ID]) ?></td>
                 <td><?= $this->Number->format($product->product_price) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $product->ID]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->ID]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $product->ID)]) ?>
+                    <?= $this->Html->link(__('Sửa'), ['action' => 'edit', $product->ID]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

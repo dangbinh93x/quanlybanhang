@@ -3,28 +3,23 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Invoice'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Customer'), ['controller' => 'Customers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
-    </ul>
+<nav class="large-3 medium-4 columns">
+    <br>
+    <div class="col-sm-4"><?= $this->Html->link(__('Thêm Hóa Đơn'), ['action' => 'add'], ['class' => 'button']) ?></div>
 </nav>
+
 <div class="invoices index large-9 medium-8 columns content">
-    <h3><?= __('Invoices') ?></h3>
+    <h3><?= __('Hóa đơn') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('ID') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('customer_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('product_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('amount') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('discount') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('total') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('order_time') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('customer_id','Khách Hàng') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('product_id','Sản Phẩm') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('amount','Số Lượng') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('discount','Chiết Khấu') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('total', 'Thành Tiền') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('order_time','Thời gian giao hàng') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -32,16 +27,15 @@
             <?php foreach ($invoices as $invoice): ?>
             <tr>
                 <td><?= $this->Number->format($invoice->ID) ?></td>
-                <td><?= $invoice->has('customer') ? $this->Html->link($invoice->customer->ID, ['controller' => 'Customers', 'action' => 'view', $invoice->customer->ID]) : '' ?></td>
-                <td><?= $invoice->has('product') ? $this->Html->link($invoice->product->ID, ['controller' => 'Products', 'action' => 'view', $invoice->product->ID]) : '' ?></td>
+                <td><?= $invoice->has('customer') ? $this->Html->link($invoice->customer->customer_name, ['controller' => 'Customers', 'action' => 'view', $invoice->customer->ID]) : '' ?></td>
+                <td><?= $invoice->has('product') ? $this->Html->link($invoice->product->product_name, ['controller' => 'Products', 'action' => 'view', $invoice->product->ID]) : '' ?></td>
                 <td><?= $this->Number->format($invoice->amount) ?></td>
                 <td><?= $this->Number->format($invoice->discount) ?></td>
                 <td><?= $this->Number->format($invoice->total) ?></td>
                 <td><?= h($invoice->order_time) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->ID]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->ID]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $invoice->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->ID)]) ?>
+                    <?= $this->Html->link(__('Chi Tiết'), ['action' => 'view', $invoice->ID]) ?>
+                    <?= $this->Html->link(__('Sửa'), ['action' => 'edit', $invoice->ID]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

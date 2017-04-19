@@ -3,21 +3,18 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Invoices'), ['controller' => 'Invoices', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Invoice'), ['controller' => 'Invoices', 'action' => 'add']) ?></li>
-    </ul>
+<nav class="large-3 medium-4 columns">
+    <br>
+    <div class="col-sm-4"><?= $this->Html->link(__('Trở Về'), ['action' => 'index'], ['class' => 'button']) ?></div>
 </nav>
+
 <div class="products form large-9 medium-8 columns content">
     <?= $this->Form->create($product) ?>
     <fieldset>
-        <legend><?= __('Add Product') ?></legend>
+        <legend><?= __('Thêm Sản Phẩm Mới') ?></legend>
         <?php
-            echo $this->Form->control('product_name');
-            echo $this->Form->control('product_price');
+            echo $this->Form->control('product_name',['label' => 'Tên Sản Phẩm']);
+            echo $this->Form->control('product_price',['label' => 'Đơn Giá']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

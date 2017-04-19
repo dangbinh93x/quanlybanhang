@@ -3,26 +3,21 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-3 medium-4 columns" >
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Xóa Hóa Đơn Này'),
                 ['action' => 'delete', $invoice->ID],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->ID)]
+                ['confirm' => __('Có Muốn Xóa # {0}?', $invoice->ID)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Invoices'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Customer'), ['controller' => 'Customers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="invoices form large-9 medium-8 columns content">
     <?= $this->Form->create($invoice) ?>
     <fieldset>
-        <legend><?= __('Edit Invoice') ?></legend>
+        <legend><?= __('Chỉnh sửa Hóa Đơn') ?></legend>
         <?php
             echo $this->Form->control('customer_id', ['options' => $customers]);
             echo $this->Form->control('product_id', ['options' => $products]);

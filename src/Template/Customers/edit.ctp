@@ -3,31 +3,26 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-3 medium-4 columns" >
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Xóa Khách Hàng Này'),
                 ['action' => 'delete', $customer->ID],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $customer->ID)]
+                ['confirm' => __('Có Muốn Xóa # {0}?', $customer->customer_name)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Customers'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Areas'), ['controller' => 'Areas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Area'), ['controller' => 'Areas', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Invoices'), ['controller' => 'Invoices', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Invoice'), ['controller' => 'Invoices', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="customers form large-9 medium-8 columns content">
     <?= $this->Form->create($customer) ?>
     <fieldset>
-        <legend><?= __('Edit Customer') ?></legend>
+        <legend><?= __('CHỈNH SỬA THÔNG TIN KHÁCH HÀNG') ?></legend>
         <?php
-            echo $this->Form->control('customer_name');
-            echo $this->Form->control('area_id', ['options' => $areas]);
+            echo $this->Form->control('customer_name',['label' => 'Tên Khách Hàng']);
+            echo $this->Form->control('area_id', ['options' => $areas, 'label' => 'Khu vực']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Xác Nhận')) ?>
     <?= $this->Form->end() ?>
 </div>

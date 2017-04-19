@@ -33,7 +33,7 @@ class ProductsTable extends Table
         parent::initialize($config);
 
         $this->setTable('products');
-        $this->setDisplayField('ID');
+        $this->setDisplayField('product_name');
         $this->setPrimaryKey('ID');
 
         $this->hasMany('Invoices', [

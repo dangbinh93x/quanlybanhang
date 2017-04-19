@@ -5,7 +5,7 @@
 ?>
 <nav class="large-3 medium-4 columns">
     <br>
-    <div class="col-sm-4"><?= $this->Html->link(__('Thêm Khách hàng'), ['action' => 'index'], ['class' => 'button']) ?></div>
+    <div class="col-sm-4"><?= $this->Html->link(__('Thêm Khách hàng'), ['action' => 'add'], ['class' => 'button']) ?></div>
 </nav>
 
 <div class="customers index large-9 medium-8 columns content">
@@ -17,7 +17,6 @@
                 <th scope="col"><?= $this->Paginator->sort('customer_name','Tên Khách Hàng') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('area_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
-                <th scope="col" class="actions"><?= __('Xóa') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -29,9 +28,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('Sửa'), ['action' => 'edit', $customer->ID]) ?>
                 </td>
-                <td>
-                    <?= $this->Form->postLink(__('Xóa'), ['action' => 'delete', $customer->ID], ['confirm' => __('Có muốn xóa # {0}?', $customer->customer_name)]) ?>
-                </td>
+
             </tr>
             <?php endforeach; ?>
         </tbody>
